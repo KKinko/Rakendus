@@ -1,0 +1,70 @@
+﻿@page
+@model LibaryDataBase.Pages.Readers.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Reader</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Reader.ID" />
+            <div class="form-group">
+                <label asp-for="Reader.FirstName" class="control-label"></label>
+                <input asp-for="Reader.FirstName" class="form-control" />
+                <span asp-validation-for="Reader.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reader.LastName" class="control-label"></label>
+                <input asp-for="Reader.LastName" class="form-control" />
+                <span asp-validation-for="Reader.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reader.Gender" class="control-label"></label>
+                <input asp-for="Reader.Gender" class="form-control" />
+                <span asp-validation-for="Reader.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reader.DoB" class="control-label"></label>
+                <input asp-for="Reader.DoB" class="form-control" />
+                <span asp-validation-for="Reader.DoB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reader.Telefon" class="control-label"></label>
+                <input asp-for="Reader.Telefon" class="form-control" />
+                <span asp-validation-for="Reader.Telefon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reader.HomeAddress" class="control-label"></label>
+                <input asp-for="Reader.HomeAddress" class="form-control" />
+                <span asp-validation-for="Reader.HomeAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reader.Education" class="control-label"></label>
+                <input asp-for="Reader.Education" class="form-control" />
+                <span asp-validation-for="Reader.Education" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reader.Email" class="control-label"></label>
+                <input asp-for="Reader.Email" class="form-control" />
+                <span asp-validation-for="Reader.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

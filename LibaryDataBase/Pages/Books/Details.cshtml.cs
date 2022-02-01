@@ -21,14 +21,14 @@ namespace LibaryDataBase.Pages.Books
 
         public Book Book { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(string? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Book = await _context.Book.FirstOrDefaultAsync(m => m.BookID == id);
+            Book = await _context.Book.FirstOrDefaultAsync(m => m.isbnID == id);
 
             if (Book == null)
             {

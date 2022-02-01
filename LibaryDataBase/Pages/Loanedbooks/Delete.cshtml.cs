@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using LibaryDataBase.Data;
 
-namespace LibaryDataBase.Pages.Readers
+namespace LibaryDataBase.Pages.Loanedbooks
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace LibaryDataBase.Pages.Readers
         }
 
         [BindProperty]
-        public Reader Reader { get; set; }
+        public LoanedBook LoanedBook { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string? id)
         {
@@ -29,27 +29,27 @@ namespace LibaryDataBase.Pages.Readers
                 return NotFound();
             }
 
-            Reader = await _context.Reader.FirstOrDefaultAsync(m => m.ID == id);
+            LoanedBook = await _context.LoanedBook.FirstOrDefaultAsync(m => m.LoanedID == id);
 
-            if (Reader == null)
+            if (LoanedBook == null)
             {
                 return NotFound();
             }
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync(string? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Reader = await _context.Reader.FindAsync(id);
+            LoanedBook = await _context.LoanedBook.FindAsync(id);
 
-            if (Reader != null)
+            if (LoanedBook != null)
             {
-                _context.Reader.Remove(Reader);
+                _context.LoanedBook.Remove(LoanedBook);
                 await _context.SaveChangesAsync();
             }
 

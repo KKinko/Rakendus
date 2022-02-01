@@ -14,11 +14,6 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Reader.ID" class="control-label"></label>
-                <input asp-for="Reader.ID" class="form-control" />
-                <span asp-validation-for="Reader.ID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Reader.FirstName" class="control-label"></label>
                 <input asp-for="Reader.FirstName" class="form-control" />
                 <span asp-validation-for="Reader.FirstName" class="text-danger"></span>
@@ -44,6 +39,11 @@
                 <span asp-validation-for="Reader.Telefon" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Reader.City" class="control-label"></label>
+                <input asp-for="Reader.City" class="form-control" />
+                <span asp-validation-for="Reader.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Reader.HomeAddress" class="control-label"></label>
                 <input asp-for="Reader.HomeAddress" class="form-control" />
                 <span asp-validation-for="Reader.HomeAddress" class="text-danger"></span>
@@ -54,9 +54,9 @@
                 <span asp-validation-for="Reader.Education" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Reader.Email" class="control-label"></label>
-                <input asp-for="Reader.Email" class="form-control" />
-                <span asp-validation-for="Reader.Email" class="text-danger"></span>
+                <label asp-for="Reader.EmailAddress" class="control-label"></label>
+                <input asp-for="Reader.EmailAddress" class="form-control" />
+                <span asp-validation-for="Reader.EmailAddress" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

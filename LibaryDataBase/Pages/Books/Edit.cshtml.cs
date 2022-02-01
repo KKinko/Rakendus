@@ -23,14 +23,14 @@ namespace LibaryDataBase.Pages.Books
         [BindProperty]
         public Book Book { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(string? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Book = await _context.Book.FirstOrDefaultAsync(m => m.BookID == id);
+            Book = await _context.Book.FirstOrDefaultAsync(m => m.isbnID == id);
 
             if (Book == null)
             {
@@ -56,7 +56,7 @@ namespace LibaryDataBase.Pages.Books
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BookExists(Book.BookID))
+                if (!BookExists(Book.isbnID))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace LibaryDataBase.Pages.Books
 
         private bool BookExists(string id)
         {
-            return _context.Book.Any(e => e.BookID == id);
+            return _context.Book.Any(e => e.isbnID == id);
         }
     }
 }

@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LibaryDataBase.Data;
 
-namespace LibaryDataBase.Pages.Readers
+namespace LibaryDataBase.Pages.BookItems
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace LibaryDataBase.Pages.Readers
         }
 
         [BindProperty]
-        public Reader Reader { get; set; }
+        public BookItem BookItem { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string? id)
         {
@@ -30,9 +30,9 @@ namespace LibaryDataBase.Pages.Readers
                 return NotFound();
             }
 
-            Reader = await _context.Reader.FirstOrDefaultAsync(m => m.ID == id);
+            BookItem = await _context.BookItem.FirstOrDefaultAsync(m => m.BookID == id);
 
-            if (Reader == null)
+            if (BookItem == null)
             {
                 return NotFound();
             }
@@ -48,7 +48,7 @@ namespace LibaryDataBase.Pages.Readers
                 return Page();
             }
 
-            _context.Attach(Reader).State = EntityState.Modified;
+            _context.Attach(BookItem).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace LibaryDataBase.Pages.Readers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ReaderExists(Reader.ID))
+                if (!BookItemExists(BookItem.BookID))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace LibaryDataBase.Pages.Readers
             return RedirectToPage("./Index");
         }
 
-        private bool ReaderExists(string id)
+        private bool BookItemExists(string id)
         {
-            return _context.Reader.Any(e => e.ID == id);
+            return _context.BookItem.Any(e => e.BookID == id);
         }
     }
 }

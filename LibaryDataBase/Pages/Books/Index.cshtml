@@ -5,11 +5,20 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Books</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+<form>
+    <p>
+        <select asp-for="BookField" asp-items="Model.Books">
+            <option value="">All</option>
+        </select>
+        Title: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -27,9 +36,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Book[0].PageCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Book[0].Status)
             </th>
             <th></th>
         </tr>
@@ -53,12 +59,9 @@
                 @Html.DisplayFor(modelItem => item.PageCount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.BookID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.BookID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.BookID">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.isbnID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.isbnID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.isbnID">Delete</a>
             </td>
         </tr>
 }

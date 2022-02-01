@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using LibaryDataBase.Data;
 
-namespace LibaryDataBase.Pages.Readers
+namespace LibaryDataBase.Pages.Loanedbooks
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace LibaryDataBase.Pages.Readers
             _context = context;
         }
 
-        public Reader Reader { get; set; }
+        public LoanedBook LoanedBook { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string? id)
         {
@@ -28,9 +28,9 @@ namespace LibaryDataBase.Pages.Readers
                 return NotFound();
             }
 
-            Reader = await _context.Reader.FirstOrDefaultAsync(m => m.ID == id);
+            LoanedBook = await _context.LoanedBook.FirstOrDefaultAsync(m => m.LoanedID == id);
 
-            if (Reader == null)
+            if (LoanedBook == null)
             {
                 return NotFound();
             }

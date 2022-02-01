@@ -52,17 +52,44 @@ namespace LibaryDataBase.Migrations
                 name: "Book",
                 columns: table => new
                 {
-                    BookID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Author = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Field = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    isbnID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
+                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Field = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     PublishDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    PageCount = table.Column<int>(type: "int", nullable: true),
-                    Status = table.Column<bool>(type: "bit", nullable: true)
+                    PageCount = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Book", x => x.BookID);
+                    table.PrimaryKey("PK_Book", x => x.isbnID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BookItem",
+                columns: table => new
+                {
+                    BookID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Libary = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BookItem", x => x.BookID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LoanedBook",
+                columns: table => new
+                {
+                    LoanedID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LoanedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    LoanedDue = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    LoanedReturned = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    OverdueFine = table.Column<int>(type: "int", nullable: true),
+                    LoanedStatus = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LoanedBook", x => x.LoanedID);
                 });
 
             migrationBuilder.CreateTable(
@@ -75,9 +102,10 @@ namespace LibaryDataBase.Migrations
                     Gender = table.Column<bool>(type: "bit", nullable: true),
                     DoB = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Telefon = table.Column<int>(type: "int", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HomeAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Education = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -249,6 +277,12 @@ namespace LibaryDataBase.Migrations
 
             migrationBuilder.DropTable(
                 name: "Book");
+
+            migrationBuilder.DropTable(
+                name: "BookItem");
+
+            migrationBuilder.DropTable(
+                name: "LoanedBook");
 
             migrationBuilder.DropTable(
                 name: "Reader");

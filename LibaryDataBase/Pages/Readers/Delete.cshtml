@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id:int}"
 @model LibaryDataBase.Pages.Readers.DeleteModel
 
 @{
@@ -43,6 +43,12 @@
             @Html.DisplayFor(model => model.Reader.Telefon)
         </dd>
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reader.City)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reader.City)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Reader.HomeAddress)
         </dt>
         <dd class="col-sm-10">
@@ -55,10 +61,10 @@
             @Html.DisplayFor(model => model.Reader.Education)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Reader.Email)
+            @Html.DisplayNameFor(model => model.Reader.EmailAddress)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Reader.Email)
+            @Html.DisplayFor(model => model.Reader.EmailAddress)
         </dd>
     </dl>
     

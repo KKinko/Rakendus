@@ -24,30 +24,71 @@ namespace LibaryDataBase.Migrations
 
             modelBuilder.Entity("LibaryDataBase.Data.Book", b =>
                 {
-                    b.Property<string>("BookID")
+                    b.Property<string>("isbnID")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Author")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Field")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<int?>("PageCount")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("PublishDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool?>("Status")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
+
+                    b.HasKey("isbnID");
+
+                    b.ToTable("Book");
+                });
+
+            modelBuilder.Entity("LibaryDataBase.Data.BookItem", b =>
+                {
+                    b.Property<string>("BookID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Libary")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BookID");
 
-                    b.ToTable("Book");
+                    b.ToTable("BookItem");
+                });
+
+            modelBuilder.Entity("LibaryDataBase.Data.LoanedBook", b =>
+                {
+                    b.Property<string>("LoanedID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("LoanedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("LoanedDue")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("LoanedReturned")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("LoanedStatus")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("OverdueFine")
+                        .HasColumnType("int");
+
+                    b.HasKey("LoanedID");
+
+                    b.ToTable("LoanedBook");
                 });
 
             modelBuilder.Entity("LibaryDataBase.Data.Reader", b =>
@@ -55,13 +96,16 @@ namespace LibaryDataBase.Migrations
                     b.Property<string>("ID")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("DoB")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Education")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("EmailAddress")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")

@@ -23,7 +23,7 @@ namespace LibaryDataBase.Pages.Readers
         [BindProperty]
         public Reader Reader { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string? id)
+        public async Task<IActionResult> OnGetAsync(string id)
         {
             if (id == null)
             {

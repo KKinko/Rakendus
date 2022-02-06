@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LibaryDataBase.Migrations
 {
-    public partial class Libary : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -49,22 +49,6 @@ namespace LibaryDataBase.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Book",
-                columns: table => new
-                {
-                    isbnID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
-                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Field = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    PublishDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    PageCount = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Book", x => x.isbnID);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "BookItem",
                 columns: table => new
                 {
@@ -74,6 +58,22 @@ namespace LibaryDataBase.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_BookItem", x => x.BookID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Books",
+                columns: table => new
+                {
+                    IsbnID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Author = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Field = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PublishDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    PageCount = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Books", x => x.IsbnID);
                 });
 
             migrationBuilder.CreateTable(
@@ -276,10 +276,10 @@ namespace LibaryDataBase.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Book");
+                name: "BookItem");
 
             migrationBuilder.DropTable(
-                name: "BookItem");
+                name: "Books");
 
             migrationBuilder.DropTable(
                 name: "LoanedBook");

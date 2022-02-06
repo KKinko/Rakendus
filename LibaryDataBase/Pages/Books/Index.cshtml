@@ -1,5 +1,5 @@
 ﻿@page
-@model LibaryDataBase.Pages.Books.IndexModel
+@model LibaryDataBase.Pages.Books.BooksPage
 
 @{
     ViewData["Title"] = "Index";
@@ -8,40 +8,31 @@
 <h1>Books</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" asp-page-handler="Create">Create New</a>
 </p>
-<form>
-    <p>
-        <select asp-for="BookField" asp-items="Model.Books">
-            <option value="">All</option>
-        </select>
-        Title: <input type="text" asp-for="SearchString" />
-        <input type="submit" value="Filter" />
-    </p>
-</form>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Book[0].Title)
+                @Html.DisplayNameFor(model => model.Books[0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book[0].Author)
+                @Html.DisplayNameFor(model => model.Books[0].Author)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book[0].Field)
+                @Html.DisplayNameFor(model => model.Books[0].Field)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book[0].PublishDate)
+                @Html.DisplayNameFor(model => model.Books[0].PublishDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book[0].PageCount)
+                @Html.DisplayNameFor(model => model.Books[0].PageCount)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Book) {
+@foreach (var item in Model.Books) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
@@ -59,9 +50,9 @@
                 @Html.DisplayFor(modelItem => item.PageCount)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.isbnID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.isbnID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.isbnID">Delete</a>
+              <a asp-page="./Edit" asp-page-handler="Edit" asp-route-id="@item.IsbnID">Edit</a> |
+              <a asp-page="./Details" asp-page-handler="Details" asp-route-id="@item.IsbnID">Details</a> |
+              <a asp-page="./Delete" asp-page-handler="Delete" asp-route-id="@item.IsbnID">Delete</a>
             </td>
         </tr>
 }

@@ -93,7 +93,7 @@ namespace LibaryDataBase.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Reader",
+                name: "Readers",
                 columns: table => new
                 {
                     ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -101,7 +101,7 @@ namespace LibaryDataBase.Migrations
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Gender = table.Column<bool>(type: "bit", nullable: true),
                     DoB = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Telefon = table.Column<int>(type: "int", nullable: true),
+                    Telephone = table.Column<int>(type: "int", nullable: true),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HomeAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Education = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -109,7 +109,7 @@ namespace LibaryDataBase.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Reader", x => x.ID);
+                    table.PrimaryKey("PK_Readers", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -285,7 +285,7 @@ namespace LibaryDataBase.Migrations
                 name: "LoanedBook");
 
             migrationBuilder.DropTable(
-                name: "Reader");
+                name: "Readers");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

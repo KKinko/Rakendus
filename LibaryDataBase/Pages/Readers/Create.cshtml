@@ -1,5 +1,5 @@
 ﻿@page
-@model LibaryDataBase.Pages.Readers.CreateModel
+@model LibaryDataBase.Pages.Readers.ReadersPage
 
 @{
     ViewData["Title"] = "Create";
@@ -11,7 +11,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form method="post" asp-page-handler = "Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Reader.FirstName" class="control-label"></label>
@@ -34,9 +34,9 @@
                 <span asp-validation-for="Reader.DoB" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Reader.Telefon" class="control-label"></label>
-                <input asp-for="Reader.Telefon" class="form-control" />
-                <span asp-validation-for="Reader.Telefon" class="text-danger"></span>
+                <label asp-for="Reader.Telephone" class="control-label"></label>
+                <input asp-for="Reader.Telephone" class="form-control" />
+                <span asp-validation-for="Reader.Telephone" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Reader.City" class="control-label"></label>
@@ -66,7 +66,7 @@
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="Index" asp-page-handler="Index" >Back to List</a>
 </div>
 
 @section Scripts {

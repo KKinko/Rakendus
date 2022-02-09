@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Data;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Rakendus.Data.Party;
 
@@ -10,7 +11,7 @@ namespace LibaryDataBase.Data
             : base(options)
         {
         }
-        public DbSet<LibaryDataBase.Data.Reader> Reader { get; set; }
+        public DbSet<ReaderData> Readers { get; set; }
         public DbSet<BookData> Books { get; set; }
         public DbSet<LibaryDataBase.Data.BookItem> BookItem { get; set; }
         public DbSet<LibaryDataBase.Data.LoanedBook> LoanedBook { get; set; }

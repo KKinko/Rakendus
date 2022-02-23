@@ -1,6 +1,4 @@
-﻿
-
-using Rakendus.Data.Party;
+﻿using Rakendus.Data.Party;
 
 namespace Rakendus.Domain.Party
 {

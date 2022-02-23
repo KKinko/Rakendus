@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibaryDataBase.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220209121221_initial")]
-    partial class initial
+    [Migration("20220210111739_Inital")]
+    partial class Inital
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

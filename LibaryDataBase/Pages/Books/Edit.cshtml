@@ -14,31 +14,7 @@
         <form method="post" asp-page-handler="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Book.IsbnID" />
-            <div class="form-group">
-                <label asp-for="Book.Title" class="control-label"></label>
-                <input asp-for="Book.Title" class="form-control" />
-                <span asp-validation-for="Book.Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Book.Author" class="control-label"></label>
-                <input asp-for="Book.Author" class="form-control" />
-                <span asp-validation-for="Book.Author" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Book.Field" class="control-label"></label>
-                <input asp-for="Book.Field" class="form-control" />
-                <span asp-validation-for="Book.Field" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Book.PublishDate" class="control-label"></label>
-                <input asp-for="Book.PublishDate" class="form-control" />
-                <span asp-validation-for="Book.PublishDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Book.PageCount" class="control-label"></label>
-                <input asp-for="Book.PageCount" class="form-control" />
-                <span asp-validation-for="Book.PageCount" class="text-danger"></span>
-            </div>
+           <partial name="_EditPerson" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

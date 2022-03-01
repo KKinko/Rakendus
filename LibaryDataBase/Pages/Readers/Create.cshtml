@@ -1,74 +1,12 @@
 ﻿@page
 @model LibaryDataBase.Pages.Readers.ReadersPage
+@using Rakendus.Pages.Extensions_Reader_
 
 @{
-    ViewData["Title"] = "Create";
+    Layout = "_Create";
 }
-
-<h1>Create</h1>
-
-<h4>Reader</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post" asp-page-handler = "Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Reader.FirstName" class="control-label"></label>
-                <input asp-for="Reader.FirstName" class="form-control" />
-                <span asp-validation-for="Reader.FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Reader.LastName" class="control-label"></label>
-                <input asp-for="Reader.LastName" class="form-control" />
-                <span asp-validation-for="Reader.LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Reader.Gender" class="control-label"></label>
-                <input asp-for="Reader.Gender" class="form-control" />
-                <span asp-validation-for="Reader.Gender" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Reader.DoB" class="control-label"></label>
-                <input asp-for="Reader.DoB" class="form-control" />
-                <span asp-validation-for="Reader.DoB" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Reader.Telephone" class="control-label"></label>
-                <input asp-for="Reader.Telephone" class="form-control" />
-                <span asp-validation-for="Reader.Telephone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Reader.City" class="control-label"></label>
-                <input asp-for="Reader.City" class="form-control" />
-                <span asp-validation-for="Reader.City" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Reader.HomeAddress" class="control-label"></label>
-                <input asp-for="Reader.HomeAddress" class="form-control" />
-                <span asp-validation-for="Reader.HomeAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Reader.Education" class="control-label"></label>
-                <input asp-for="Reader.Education" class="form-control" />
-                <span asp-validation-for="Reader.Education" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Reader.EmailAddress" class="control-label"></label>
-                <input asp-for="Reader.EmailAddress" class="form-control" />
-                <span asp-validation-for="Reader.EmailAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-page="Index" asp-page-handler="Index" >Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<body>
+      @Html.MyEditorFor(m => m.Reader.ID)
+      <partial name= "_EditReader"/>
+</body>
 }

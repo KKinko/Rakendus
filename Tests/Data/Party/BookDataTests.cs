@@ -4,7 +4,7 @@ using System;
 
 namespace Rakendus.Tests.Data.Party
 {
-    [TestClass] public class BookDataTests: BaseTests<BookData>
+    [TestClass] public class BookDataTests: BaseTestss<BookData>
     {
         [TestMethod] public void IsbnIDTest() => isProperty<string>();
         [TestMethod] public void TitleTest() => isProperty<string?>();

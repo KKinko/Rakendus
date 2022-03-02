@@ -3,10 +3,8 @@
 
 namespace Rakendus.Data.Party
 {
-    public class BookData
+    public class BookData : EntityData
     {
-        [Key]
-        public string IsbnID { get; set; }
         public string? Title { get; set; }
         public string? Author { get; set; }
         public string? Field { get; set; }

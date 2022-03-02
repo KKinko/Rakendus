@@ -7,7 +7,7 @@ using Rakendus.Aids;
 namespace Rakendus.Tests.Data.Party
 {
     [TestClass]
-    public class ReaderDataTests: BaseTestss<ReaderData> {
+    public class ReaderDataTests: BaseTests<ReaderData> {
         [TestMethod] public void IDTest() => isProperty<string>();
         [TestMethod] public void FirstNameTest() => isProperty<string?>();
         [TestMethod] public void LastNameTest() => isProperty<string?>();

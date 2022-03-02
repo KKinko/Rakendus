@@ -2,25 +2,20 @@
 
 namespace Rakendus.Domain.Party
 {
-    public class Book
+    public class Book: Entity<BookData>
     {
         private const string defaultStr = "Undefined";
         private const int defaultInt = 0;
 
         private DateTime defaultDate => DateTime.MinValue;
-        private BookData data;
-
         public Book() : this(new BookData()) { }
-        public Book(BookData d) => data = d;
-
-
-        public string IsbnID => data?.IsbnID ?? defaultStr;
-        public string Title => data?.Title ?? defaultStr;
-        public string Author => data?.Author ?? defaultStr;
-        public string Field => data?.Field ?? defaultStr;
-        public DateTime PublishDate => data?.PublishDate ?? defaultDate;
-        public int PageCount => data?.PageCount ?? defaultInt;
-        public BookData Data => data;
+        public Book (BookData d) : base(d) { }
+        public string IsbnID => Data?.IsbnID ?? defaultStr;
+        public string Title => Data?.Title ?? defaultStr;
+        public string Author => Data?.Author ?? defaultStr;
+        public string Field => Data?.Field ?? defaultStr;
+        public DateTime PublishDate => Data?.PublishDate ?? defaultDate;
+        public int PageCount => Data?.PageCount ?? defaultInt;
         public override string ToString() => $"{Title} {Author} ({Field}, {PublishDate}, {PageCount})";
     }
 }

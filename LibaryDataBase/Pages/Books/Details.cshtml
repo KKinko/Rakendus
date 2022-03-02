@@ -1,25 +1,9 @@
 ﻿@page
 @model LibaryDataBase.Pages.Books.BooksPage
-
 @{
-    ViewData["Title"] = "Details";
+    Layout = "_Details";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Book</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Book.FullBookName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Book.FullBookName)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-page-handler="Edit" asp-route-id="@Model.Book.IsbnID">Edit</a> |
-    <a asp-page="./Index" asp-page-handler="Index">Back to List</a>
-</div>
+<body>
+    <partial name = "_DetailsBook" />
+</body>

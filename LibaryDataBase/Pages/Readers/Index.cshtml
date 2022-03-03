@@ -13,72 +13,32 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Readers[0].ReaderFullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Readers[0].FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Readers[0].LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Readers[0].Gender)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Readers[0].DoB)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Readers[0].Telephone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Readers[0].City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Readers[0].HomeAddress)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Readers[0].Education)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Readers[0].EmailAddress)
-            </th>
+            <th> @Html.DisplayNameFor(model => model.Readers[0].ReaderFullName)
+            <th> @Html.DisplayNameFor(model => model.Readers[0].FirstName)
+            <th> @Html.DisplayNameFor(model => model.Readers[0].LastName)
+            <th> @Html.DisplayNameFor(model => model.Readers[0].Gender)
+            <th> @Html.DisplayNameFor(model => model.Readers[0].DoB)
+            <th> @Html.DisplayNameFor(model => model.Readers[0].Telephone)
+            <th> @Html.DisplayNameFor(model => model.Readers[0].City)
+            <th> @Html.DisplayNameFor(model => model.Readers[0].HomeAddress)
+            <th> @Html.DisplayNameFor(model => model.Readers[0].Education)
+            <th> @Html.DisplayNameFor(model => model.Readers[0].EmailAddress)
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Readers) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReaderFullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DoB)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telephone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HomeAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Education)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmailAddress)
-            </td>
+            <td> @Html.DisplayFor(modelItem => item.ReaderFullName)
+            <td> @Html.DisplayFor(modelItem => item.FirstName)
+            <td> @Html.DisplayFor(modelItem => item.LastName)
+            <td> @Html.DisplayFor(modelItem => item.Gender)
+            <td> @Html.DisplayFor(modelItem => item.DoB)
+            <td> @Html.DisplayFor(modelItem => item.Telephone)
+            <td> @Html.DisplayFor(modelItem => item.City)
+            <td> @Html.DisplayFor(modelItem => item.HomeAddress)
+            <td> @Html.DisplayFor(modelItem => item.Education)
+            <td> @Html.DisplayFor(modelItem => item.EmailAddress)
             <td>
                 <a asp-page="./Edit" asp-page-handler= "Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-page="./Details" asp-page-handler="Details" asp-route-id="@item.ID">Details</a> |

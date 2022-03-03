@@ -1,6 +1,6 @@
 ﻿using Data;
-using Domain;
 using Facade;
+using Rakendus.Domain.Party;
 
 namespace Rakendus.Facade.Party{
     public class ReaderViewFactory {

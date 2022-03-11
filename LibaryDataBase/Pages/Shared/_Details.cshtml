@@ -3,7 +3,7 @@
     ViewData["Title"] = "Details";
     ViewData["SubTitle"] = Model?.GetType()?.Name?.Replace("Page", string.Empty) ?? "Unspecified";
     Layout = "_Layout";
-    var itemID = Model?.Book?.IsbnID ?? string.Empty;
+    var itemID = Model?.ItemId?? string.Empty;
 }
 
 <h1>@ViewData["Title"]</h1>

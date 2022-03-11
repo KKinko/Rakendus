@@ -1,11 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Rakendus.Tests
 {
-    public abstract class AssertTests {
-        protected static void inconclusive() => Assert.Inconclusive();
+    public abstract class TestAsserts {
+        protected static void isInconclusive(string? s = null) => Assert.Inconclusive(s ?? string.Empty);
         protected static void IsNotNull([NotNull] object? o = null) => Assert.IsNotNull(o);
         protected static void areEqual(object? expected, object? actual) => Assert.AreEqual(expected, actual);
+        protected static void isInstanceOfType(object o, Type expectedType) => Assert.IsInstanceOfType(o, expectedType);
     }
 }

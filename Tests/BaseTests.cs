@@ -4,11 +4,11 @@ using System.Diagnostics;
 
 namespace Rakendus.Tests
 {
-    public abstract class BaseTests<TClass> : AssertTests where TClass : class, new()
+    public abstract class BaseTests<TClass> : IsTypeTested where TClass : class, new()
     {
         protected TClass obj;
         protected BaseTests() => obj = new TClass();
-        protected void isProperty<T>(T value = default, bool isReadOnly = false)
+        protected void isProperty<T>(T? value = default, bool isReadOnly = false)
         {
             var memberName = getCallingMember(nameof(isProperty)).Replace("Test", string.Empty);
             var propertyInfo = obj.GetType().GetProperty(memberName);

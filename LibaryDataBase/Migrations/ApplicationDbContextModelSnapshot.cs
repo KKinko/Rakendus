@@ -17,85 +17,10 @@ namespace LibaryDataBase.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.1")
+                .HasAnnotation("ProductVersion", "6.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("Data.ReaderData", b =>
-                {
-                    b.Property<string>("ID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("DoB")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Education")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmailAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("Gender")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("HomeAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Telephone")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Readers");
-                });
-
-            modelBuilder.Entity("LibaryDataBase.Data.BookItem", b =>
-                {
-                    b.Property<string>("BookID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Libary")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("BookID");
-
-                    b.ToTable("BookItem");
-                });
-
-            modelBuilder.Entity("LibaryDataBase.Data.LoanedBook", b =>
-                {
-                    b.Property<string>("LoanedID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime?>("LoanedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("LoanedDue")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("LoanedReturned")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool?>("LoanedStatus")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("OverdueFine")
-                        .HasColumnType("int");
-
-                    b.HasKey("LoanedID");
-
-                    b.ToTable("LoanedBook");
-                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -301,7 +226,7 @@ namespace LibaryDataBase.Migrations
 
             modelBuilder.Entity("Rakendus.Data.Party.BookData", b =>
                 {
-                    b.Property<string>("IsbnID")
+                    b.Property<string>("ID")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Author")
@@ -319,9 +244,87 @@ namespace LibaryDataBase.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("IsbnID");
+                    b.HasKey("ID");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", "Rakendus");
+                });
+
+            modelBuilder.Entity("Rakendus.Data.Party.BookItemData", b =>
+                {
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("InStock")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Libary")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("BookItems", "Rakendus");
+                });
+
+            modelBuilder.Entity("Rakendus.Data.Party.LoanedBookData", b =>
+                {
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("LoanedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("LoanedDue")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("LoanedReturned")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("LoanedStatus")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("OverdueFine")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("LoanedBooks", "Rakendus");
+                });
+
+            modelBuilder.Entity("Rakendus.Data.Party.ReaderData", b =>
+                {
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DoB")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Education")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmailAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("Gender")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("HomeAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Telephone")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Readers");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

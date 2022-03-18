@@ -1,5 +1,5 @@
-﻿using Data;
-using Facade;
+﻿using Facade;
+using Rakendus.Data.Party;
 using Rakendus.Domain.Party;
 
 namespace Rakendus.Facade.Party{

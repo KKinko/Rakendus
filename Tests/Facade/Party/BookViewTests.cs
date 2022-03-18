@@ -4,9 +4,9 @@ using System;
 
 namespace Rakendus.Tests.Facade.Party
 {
-    [TestClass] public class BookViewTests: BaseTests<BookView>
+    [TestClass] public class BookViewTests: SealedClassTests<BookView>
     {
-        [TestMethod] public void IsbnIDTest() => isProperty<string?>();
+        [TestMethod] public void IDTest() => isProperty<string?>();
         [TestMethod] public void TitleTest() => isProperty<string?>();
         [TestMethod] public void AuthorTest() => isProperty<string?>();
         [TestMethod] public void FieldTest() => isProperty<string?>();

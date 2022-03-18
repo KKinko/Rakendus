@@ -1,10 +1,10 @@
 ﻿@page
-@model LibaryDataBase.Pages.Books.BooksPage
+@model Rakendus.Pages.BooksPage
 @using Rakendus.Pages.Extensions
 @{
     Layout = "_Create";
 }
 <body>
-          @Html.MyEditorFor(m => m.Book.IsbnID)
-          <partial name = "_EditPartial"/>
+            @Html.MyEditorFor(m => m.Item.ID)
+            <partial name = "_EditPartial"/>
 </body>

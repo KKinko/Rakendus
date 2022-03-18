@@ -4,15 +4,16 @@ using System.Diagnostics;
 
 namespace Rakendus.Tests
 {
-    public abstract class BaseTests<TClass> : IsTypeTested where TClass : class, new()
+    public abstract class BaseTests : IsTypeTested
     {
-        protected TClass obj;
-        protected BaseTests() => obj = new TClass();
+        protected object obj;
+        protected BaseTests() => obj = createObj();
+        protected abstract object createObj();
         protected void isProperty<T>(T? value = default, bool isReadOnly = false)
         {
             var memberName = getCallingMember(nameof(isProperty)).Replace("Test", string.Empty);
             var propertyInfo = obj.GetType().GetProperty(memberName);
-            IsNotNull(propertyInfo);
+            isNotNull(propertyInfo);
             if (isNullOrDefault(value)) value = random<T>();
             if (canWrite(propertyInfo, isReadOnly)) propertyInfo.SetValue(obj, value);
             areEqual(value, propertyInfo.GetValue(obj));

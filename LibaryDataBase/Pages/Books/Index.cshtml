@@ -1,11 +1,12 @@
 ﻿@page
-@model LibaryDataBase.Pages.Books.BooksPage
-
+@model Rakendus.Pages.BooksPage
 @{
     ViewData["Title"] = "Index";
+    ViewData["SubTitle"] = Model?.GetType()?.Name?.Replace("Page", string.Empty) ?? "Unspecified";
 }
 
-<h1>Books</h1>
+
+<h1>@ViewData["SubTitle"]</h1>
 
 <p>
     <a asp-page="Create" asp-page-handler="Create">Create New</a>
@@ -13,46 +14,26 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Books[0].Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Books[0].Author)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Books[0].Field)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Books[0].PublishDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Books[0].PageCount)
-            </th>
+            <th> @Html.DisplayNameFor(model => model.Items[0].Title)</th>
+            <th>@Html.DisplayNameFor(model => model.Items[0].Author) </th>
+            <th>@Html.DisplayNameFor(model => model.Items[0].Field)</th>
+            <th>@Html.DisplayNameFor(model => model.Items[0].PublishDate)</th>
+            <th>@Html.DisplayNameFor(model => model.Items[0].PageCount)</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Books) {
+@foreach (var item in Model.Items) {
         <tr>
+            <td>@Html.DisplayFor(modelItem => item.Title)</td>
+            <td>@Html.DisplayFor(modelItem => item.Author)</td>
+            <td>@Html.DisplayFor(modelItem => item.Field)</td>
+            <td>@Html.DisplayFor(modelItem => item.PublishDate)</td>
+            <td>@Html.DisplayFor(modelItem => item.PageCount)</td>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PublishDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PageCount)
-            </td>
-            <td>
-              <a asp-page="./Edit" asp-page-handler="Edit" asp-route-id="@item.IsbnID">Edit</a> |
-              <a asp-page="./Details" asp-page-handler="Details" asp-route-id="@item.IsbnID">Details</a> |
-              <a asp-page="./Delete" asp-page-handler="Delete" asp-route-id="@item.IsbnID">Delete</a>
+              <a asp-page="./Edit" asp-page-handler="Edit" asp-route-id="@item.ID">Edit</a> |
+              <a asp-page="./Details" asp-page-handler="Details" asp-route-id="@item.ID">Details</a> |
+              <a asp-page="./Delete" asp-page-handler="Delete" asp-route-id="@item.ID">Delete</a>
             </td>
         </tr>
 }

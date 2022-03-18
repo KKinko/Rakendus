@@ -1,10 +1,9 @@
-﻿@page
-@model LibaryDataBase.Pages.Books.BooksPage
+﻿@model Rakendus.Pages.BooksPage
 @using Rakendus.Pages.Extensions
 
- @Html.MyEditorFor(m => m.Book.Title)
- @Html.MyEditorFor(m => m.Book.Author)
- @Html.MyEditorFor(m => m.Book.Field)
- @Html.MyEditorFor(m => m.Book.PublishDate)
- @Html.MyEditorFor(m => m.Book.PageCount)
+ @Html.MyEditorFor(m => m.Item.Title)
+ @Html.MyEditorFor(m => m.Item.Author)
+ @Html.MyEditorFor(m => m.Item.Field)
+ @Html.MyEditorFor(m => m.Item.PublishDate)
+ @Html.MyEditorFor(m => m.Item.PageCount)
            

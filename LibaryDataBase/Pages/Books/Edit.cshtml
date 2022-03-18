@@ -1,10 +1,10 @@
 ﻿@page
-@model LibaryDataBase.Pages.Books.BooksPage
+@model Rakendus.Pages.BooksPage
 @{
     Layout = "_Edit";
 }
 
 <body>
-    <input type="hidden" asp-for="Book.IsbnID" />
+    <input type="hidden" asp-for="Item.ID" />
         <partial name="_EditPartial" />
 </body>

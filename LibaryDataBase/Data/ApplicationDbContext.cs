@@ -11,7 +11,6 @@ namespace LibaryDataBase.Data
             : base(options)
         {
         }
-        public DbSet<ReaderData> Readers { get; set; }
         public DbSet<BookData> Books { get; set; }
         public DbSet<LibaryDataBase.Data.BookItem> BookItem { get; set; }
         public DbSet<LibaryDataBase.Data.LoanedBook> LoanedBook { get; set; }

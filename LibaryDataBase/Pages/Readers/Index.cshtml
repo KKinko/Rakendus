@@ -13,21 +13,21 @@
 <table class="table">
     <thead>
         <tr>
-            <th> @Html.DisplayNameFor(model => model.Readers[0].ReaderFullName)
-            <th> @Html.DisplayNameFor(model => model.Readers[0].FirstName)
-            <th> @Html.DisplayNameFor(model => model.Readers[0].LastName)
-            <th> @Html.DisplayNameFor(model => model.Readers[0].Gender)
-            <th> @Html.DisplayNameFor(model => model.Readers[0].DoB)
-            <th> @Html.DisplayNameFor(model => model.Readers[0].Telephone)
-            <th> @Html.DisplayNameFor(model => model.Readers[0].City)
-            <th> @Html.DisplayNameFor(model => model.Readers[0].HomeAddress)
-            <th> @Html.DisplayNameFor(model => model.Readers[0].Education)
-            <th> @Html.DisplayNameFor(model => model.Readers[0].EmailAddress)
+            <th> @Html.DisplayNameFor(model => model.Items[0].ReaderFullName)
+            <th> @Html.DisplayNameFor(model => model.Items[0].FirstName)
+            <th> @Html.DisplayNameFor(model => model.Items[0].LastName)
+            <th> @Html.DisplayNameFor(model => model.Items[0].Gender)
+            <th> @Html.DisplayNameFor(model => model.Items[0].DoB)
+            <th> @Html.DisplayNameFor(model => model.Items[0].Telephone)
+            <th> @Html.DisplayNameFor(model => model.Items[0].City)
+            <th> @Html.DisplayNameFor(model => model.Items[0].HomeAddress)
+            <th> @Html.DisplayNameFor(model => model.Items[0].Education)
+            <th> @Html.DisplayNameFor(model => model.Items[0].EmailAddress)
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Readers) {
+@foreach (var item in Model.Items) {
         <tr>
             <td> @Html.DisplayFor(modelItem => item.ReaderFullName)
             <td> @Html.DisplayFor(modelItem => item.FirstName)

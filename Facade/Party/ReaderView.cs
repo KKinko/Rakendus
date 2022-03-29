@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Facade
 {
-    public class ReaderView
+    public sealed class ReaderView
     {
         [Required] public string ID { get; set; }
 

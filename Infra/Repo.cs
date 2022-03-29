@@ -11,9 +11,10 @@ namespace Rakendus.Infra
 
     public abstract class Repo<TDomain, TData> : IRepo<TDomain> where TDomain : Entity<TData>, new() where TData : EntityData, new()
     {
-        private readonly DbContext db;
-        private readonly DbSet<TData> set;
-        protected Repo(DbContext c, DbSet<TData> s) 
+        private readonly DbContext? db;
+        private readonly DbSet<TData>? set;
+
+        protected Repo(DbContext? c, DbSet<TData>? s) 
         { 
             db = c;
             set = s;
@@ -32,8 +33,8 @@ namespace Rakendus.Infra
             var d = obj.Data;
             try
             {
-                await set.AddAsync(d);
-                await db.SaveChangesAsync();
+                _ = (set is null)? null: await set.AddAsync(d);
+                _ = (db is null)? 0: await db.SaveChangesAsync();
                 return true;
             }
             catch
@@ -46,11 +47,11 @@ namespace Rakendus.Infra
         {
             try 
             {
-                var d = await set.FindAsync(id);
+                var d = (set is null) ? null: await set.FindAsync(id);
 
                 if (d == null) return false;
-                set.Remove(d);
-                await db.SaveChangesAsync();
+                _ = set?.Remove(d);
+                _ = (db is null) ? 0: await db.SaveChangesAsync();
                 return true;
             }
             catch
@@ -64,7 +65,7 @@ namespace Rakendus.Infra
             try 
             {
             var items = new List<TDomain>();
-            var list = await set.ToListAsync();
+            var list = (set is null) ? new List<TData>() : await set.ToListAsync();
             foreach (var d in list) items.Add(toDomain(d));
             return items;
             }
@@ -78,7 +79,7 @@ namespace Rakendus.Infra
             try
             {
                 if (id == null) return new TDomain();
-                var d = await set.FirstOrDefaultAsync(x => x.IsbnID == id);
+                var d = (set is null) ? null: await set.FirstOrDefaultAsync(x => x.ID == id);
                 return d == null ? new TDomain() : toDomain(d);
             }
             catch
@@ -93,9 +94,9 @@ namespace Rakendus.Infra
             try
             {
                 var d = obj.Data;
-                db.Attach(d).State = EntityState.Modified;
+                if (db is not null) db.Attach(d).State = EntityState.Modified;
 
-                await db.SaveChangesAsync();
+                _ = (db is null) ? 0: await db.SaveChangesAsync();
                 return true;
             }
             catch

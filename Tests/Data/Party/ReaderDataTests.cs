@@ -1,13 +1,12 @@
-﻿
-using Data;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Rakendus.Aids;
+using Rakendus.Data.Party;
 
 namespace Rakendus.Tests.Data.Party
 {
     [TestClass]
-    public class ReaderDataTests: BaseTests<ReaderData> {
+    public class ReaderDataTests: SealedClassTests<ReaderData> {
         [TestMethod] public void IDTest() => isProperty<string>();
         [TestMethod] public void FirstNameTest() => isProperty<string?>();
         [TestMethod] public void LastNameTest() => isProperty<string?>();

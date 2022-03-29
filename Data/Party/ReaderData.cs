@@ -1,8 +1,10 @@
-﻿using Rakendus.Data;
+﻿
+using System.ComponentModel.DataAnnotations;
 
-namespace Data
+namespace Rakendus.Data.Party
 {
-    public class ReaderData : EntityData {
+    public sealed class ReaderData : EntityData
+    {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public bool? Gender { get; set; }

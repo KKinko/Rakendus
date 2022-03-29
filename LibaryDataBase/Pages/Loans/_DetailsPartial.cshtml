@@ -1,0 +1,8 @@
+﻿@model Rakendus.Pages.LoansPage
+@using Rakendus.Pages.Extensions
+
+@Html.MyViewerFor(m => m.Item.LoanedDate)
+@Html.MyViewerFor(m => m.Item.LoanedDue)
+@Html.MyViewerFor(m => m.Item.LoanedReturned)
+@Html.MyViewerFor(m => m.Item.OverdueFine)
+@Html.MyViewerFor(m => m.Item.LoanedStatus)

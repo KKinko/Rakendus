@@ -1,10 +1,8 @@
-﻿using Data;
-using Rakendus.Domain;
-using Rakendus.Domain.Party;
+﻿using Rakendus.Data.Party;
 
 namespace Rakendus.Domain.Party
 {
-    public class Reader : Entity<ReaderData>
+    public sealed class Reader : Entity<ReaderData>
     {
         private const string defaultStr = "Undefined";
         private const int defaultInt = 0;

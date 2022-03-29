@@ -1,0 +1,10 @@
+﻿@page
+@model Rakendus.Pages.ItemsPage
+@using Rakendus.Pages.Extensions
+@{
+    Layout = "_Create";
+}
+<body>
+            @Html.MyEditorFor(m => m.Item.ID)
+            <partial name = "_EditPartial"/>
+</body>

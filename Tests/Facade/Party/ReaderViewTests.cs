@@ -7,7 +7,7 @@ using System;
 namespace Rakendus.Tests.Facade.Party
 {
     [TestClass]
-    public class ReaderViewTests: BaseTests<ReaderView>
+    public class ReaderViewTests: SealedClassTests<ReaderView>
     {
         [TestMethod] public void IDTest() => isProperty<string>();
         [TestMethod] public void FirstNameTest() => isProperty<string?>();

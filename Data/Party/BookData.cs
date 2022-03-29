@@ -1,9 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-
+﻿
+using System.ComponentModel.DataAnnotations;
 
 namespace Rakendus.Data.Party
 {
-    public class BookData : EntityData
+    public sealed class BookData : EntityData
     {
         public string? Title { get; set; }
         public string? Author { get; set; }

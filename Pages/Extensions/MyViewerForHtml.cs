@@ -22,10 +22,6 @@ namespace Rakendus.Pages.Extensions
             l.Add(h.DisplayFor(e));
             l.Add(new HtmlString("</dd>"));
             l.Add(new HtmlString("</dl>"));
-             
-
-
-
             return l;
         }
     }

@@ -9,7 +9,7 @@ namespace Rakendus.Infra
         public DbSet<BookData>? Books { get; set; }
         public DbSet<ItemData>? Items { get; set; }
         public DbSet<LoanedData>? Loans { get; set; }
-
+        public DbSet<ReaderData> Readers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder b)
         {
@@ -22,6 +22,7 @@ namespace Rakendus.Infra
             _ = (b?.Entity<BookData>()?.ToTable(nameof(Books), s));
             _ = (b?.Entity<ItemData>()?.ToTable(nameof(Items), s));
             _ = (b?.Entity<LoanedData>()?.ToTable(nameof(Loans), s));
+            _ = (b?.Entity<ReaderData>()?.ToTable(nameof(Readers), s));
 
         }
 

@@ -7,9 +7,10 @@ namespace Rakendus.Infra
     {
         public RakendusDb(DbContextOptions<RakendusDb> options) : base(options) { }
         public DbSet<BookData>? Books { get; set; }
+        public DbSet<ReaderData>? Readers { get; set; }
         public DbSet<ItemData>? Items { get; set; }
         public DbSet<LoanedData>? Loans { get; set; }
-        public DbSet<ReaderData> Readers { get; set; }
+       
 
         protected override void OnModelCreating(ModelBuilder b)
         {

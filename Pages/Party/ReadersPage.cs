@@ -1,8 +1,7 @@
-﻿using Facade;
-using Rakendus.Domain.Party;
+﻿using Rakendus.Domain.Party;
 using Rakendus.Facade.Party;
 
-namespace Rakendus.Pages.Party
+namespace Rakendus.Pages
 {
     public class ReadersPage : BasePage<ReaderView, Reader, IReadersRepo>
     {

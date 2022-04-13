@@ -8,7 +8,7 @@ namespace Rakendus.Domain.Party
         public Item() : this(new ItemData()) { }
         public Item(ItemData d) : base(d) { }
         
-        public int? InStock => getValue(Data?.InStock);
+        public string? Isbn => getValue(Data?.Isbn);
         public string? Libary => getValue(Data?.Libary); 
 
         

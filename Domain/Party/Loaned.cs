@@ -9,13 +9,10 @@ namespace Rakendus.Domain.Party
         public Loaned(LoanedData d) : base(d) { }
 
 
+        public string? BookItem => getValue(Data?.BookItem);
+        public string? Reader => getValue(Data?.Reader);
         public DateTime? LoanedDate => getValue(Data?.LoanedDate);
-        public DateTime? LoanedDue => getValue(Data?.LoanedDue);
         public DateTime? LoanedReturned => getValue(Data?.LoanedReturned);
-        public int? OverdueFine => getValue(Data?.OverdueFine);
-        public bool? LoanedStatus => getValue(Data?.LoanedStatus);
-
-
 
     }
 }

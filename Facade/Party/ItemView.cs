@@ -6,7 +6,7 @@ namespace Rakendus.Facade.Party
 {
     public sealed class ItemView: BaseView
     {
-        [Display(Name = "Books In Stock")] public int? InStock { get; set; }
+        [Display(Name = "Isbn")] public string? Isbn { get; set; }
         [Display(Name = "Libary")] public string? Libary { get; set; }
     }
     public sealed class ItemViewFactory : BaseViewFactory<ItemView, Item, ItemData>

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Rakendus.Data.Party;
 using Rakendus.Infra;
 
 namespace LibaryDataBase.Data

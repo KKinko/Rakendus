@@ -4,10 +4,9 @@ namespace Rakendus.Data.Party
 {
     public sealed class LoanedData : EntityData
     {
+        public string? BookItem { get; set; }
+        public string? Reader { get; set; }
         public DateTime? LoanedDate { get; set; }
-        public DateTime? LoanedDue { get; set; }
         public DateTime? LoanedReturned { get; set; }
-        public int? OverdueFine { get; set; }
-        public bool? LoanedStatus { get; set; }
     }
 }

@@ -13,7 +13,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.Items[0].InStock)</th>
+            <th>@Html.DisplayNameFor(model => model.Items[0].Isbn)</th>
             <th>@Html.DisplayNameFor(model => model.Items[0].Libary)</th>
             <th></th>
         </tr>
@@ -21,7 +21,7 @@
     <tbody>
 @foreach (var item in Model.Items) {
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.InStock)</td>
+            <td>@Html.DisplayFor(modelItem => item.Isbn)</td>
             <td>@Html.DisplayFor(modelItem => item.Libary)</td>
             <td>
               <a asp-page="./Edit" asp-page-handler="Edit" asp-route-id="@item.ID">Edit</a> |

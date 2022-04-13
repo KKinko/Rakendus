@@ -99,7 +99,7 @@ namespace Rakendus.Aids
         private static T tryCreate<T>()
         {
             var c = typeof(T).GetConstructor(Array.Empty<Type>());
-            return (T)c?.Invoke(null);
+            return (T) c?.Invoke(null);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Facade;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Rakendus.Aids;
 using Rakendus.Data.Party;
 using Rakendus.Domain.Party;

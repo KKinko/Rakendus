@@ -1,9 +1,7 @@
 ﻿@model Rakendus.Pages.LoansPage
 @using Rakendus.Pages.Extensions
 
+@Html.MyEditorFor(m => m.Item.BookItem)
+@Html.MyEditorFor(m => m.Item.Reader)
 @Html.MyEditorFor(m => m.Item.LoanedDate)
-@Html.MyEditorFor(m => m.Item.LoanedDue)
 @Html.MyEditorFor(m => m.Item.LoanedReturned)
-@Html.MyEditorFor(m => m.Item.OverdueFine)
-@Html.MyEditorFor(m => m.Item.LoanedStatus)
-           

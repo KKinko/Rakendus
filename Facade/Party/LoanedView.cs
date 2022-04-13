@@ -6,11 +6,13 @@ namespace Rakendus.Facade.Party
 {
     public sealed class LoanedView: BaseView
     {
+       
+        [Display(Name = "Book Item")] public string? BookItem { get; set; }
+        [Display(Name = "Reader")] public string? Reader { get; set; }
         [Display(Name = "Loaned Date")] public DateTime? LoanedDate { get; set; }
-        [Display(Name = "Loaned Due")] public DateTime? LoanedDue { get; set; }
         [Display(Name = "Loaned Returned")] public DateTime? LoanedReturned { get; set; }
-        [Display(Name = "Overdue Fine")] public int? OverdueFine { get; set; }
-        [Display(Name = "Loaned Status")] public bool? LoanedStatus { get; set; }
+
+
     }
     public sealed class LoanedViewFactory : BaseViewFactory<LoanedView, Loaned, LoanedData>
     {

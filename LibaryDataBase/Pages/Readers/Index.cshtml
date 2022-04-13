@@ -1,8 +1,8 @@
 ﻿@page
-@model LibaryDataBase.Pages.Readers.ReadersPage
-
+@model Rakendus.Pages.ReadersPage
 @{
     ViewData["Title"] = "Index";
+    ViewData["SubTitle"] = Model?.GetType()?.Name?.Replace("Page", string.Empty) ?? "Unspecified";
 }
 
 <h1>Readers</h1>

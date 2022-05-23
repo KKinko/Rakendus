@@ -3,7 +3,7 @@ using Rakendus.Data;
 
 namespace Rakendus.Infra.Initializers
 {
-    public abstract class BaseInitializer<TData> where TData : EntityData
+    public abstract class BaseInitializer<TData> where TData : UniqueData
     {
         internal protected DbContext? db;
         internal protected DbSet<TData>? set;
@@ -19,16 +19,7 @@ namespace Rakendus.Infra.Initializers
             db?.SaveChanges();
         }
         protected abstract IEnumerable<TData> getEntities { get; }
-    }
+        internal static bool isCorrectIsoCode(string id) => !string.IsNullOrWhiteSpace(id) && char.IsLetter(id[0]);
 
-    public static class RakendusDbInitializer
-    {
-        public static void Init(RakendusDb? db)
-        {
-            new BooksInitializer(db).Init();
-            new ReadersInitializer(db).Init();
-            new ItemsInitializer(db).Init();
-            new LoanedInitializer(db).Init();
-        }
     }
 }

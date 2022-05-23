@@ -1,12 +1,11 @@
-﻿@model Rakendus.Pages.ReadersPage
+﻿@model Rakendus.Pages.Party.ReadersPage
 @using Rakendus.Pages.Extensions
 
 @Html.MyViewerFor(m => m.Item.FirstName)
 @Html.MyViewerFor(m => m.Item.LastName)
-@Html.MyViewerFor(m => m.Item.Gender)     
+@Html.MyViewerFor(m => m.Item.Gender, Model.GenderDescription(Model.Item.Gender))     
 @Html.MyViewerFor(m => m.Item.DoB)
 @Html.MyViewerFor(m => m.Item.Telephone)
-@Html.MyViewerFor(m => m.Item.City)
+@Html.MyViewerFor(m => m.Item.CityID, Model.CityName(Model.Item.CityID))
 @Html.MyViewerFor(m => m.Item.HomeAddress)
-@Html.MyViewerFor(m => m.Item.Education)
-@Html.MyViewerFor(m => m.Item.EmailAddress)
+@Html.MyViewerFor(m => m.Item.LoanedID, Model.LoanedName(Model.Item.LoanedID))

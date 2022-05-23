@@ -1,9 +1,8 @@
-﻿@model Rakendus.Pages.BooksPage
+﻿@model Rakendus.Pages.Party.BooksPage
 @using Rakendus.Pages.Extensions
 
  @Html.MyEditorFor(m => m.Item.Title)
- @Html.MyEditorFor(m => m.Item.Author)
+ @Html.MyEditorFor(m => m.Item.Isbn)
  @Html.MyEditorFor(m => m.Item.Field)
  @Html.MyEditorFor(m => m.Item.PublishDate)
  @Html.MyEditorFor(m => m.Item.PageCount)
-           

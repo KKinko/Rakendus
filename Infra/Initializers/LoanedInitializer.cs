@@ -10,8 +10,8 @@ namespace Rakendus.Infra.Initializers
             var loaned = new LoanedData
             {
                 ID = name + item,
-                BookItem = item,
-                Reader = name,
+                ItemID = item,
+                ReaderID = name,
                 LoanedDate = loanedDate,
                 LoanedReturned = loanedReturned
             };

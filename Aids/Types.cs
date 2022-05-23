@@ -1,10 +1,8 @@
 ﻿
 using System.Reflection;
 
-namespace Rakendus.Aids
-{
-    public static class Types
-    {
+namespace Rakendus.Aids {
+    public static class Types {
         private static readonly BindingFlags allDeclaredOnly =
             BindingFlags.DeclaredOnly
             | BindingFlags.Public
@@ -30,5 +28,3 @@ namespace Rakendus.Aids
         public static MethodInfo? Method(this Type? t, string methodName) => Safe.Run(() => t?.GetMethod(methodName));
     }
 }
-
-

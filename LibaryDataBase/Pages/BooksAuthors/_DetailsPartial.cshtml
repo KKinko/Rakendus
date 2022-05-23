@@ -1,0 +1,5 @@
+﻿@model Rakendus.Pages.Party.BooksAuthorsPage
+@using Rakendus.Pages.Extensions
+
+@Html.MyViewerFor(m => m.Item.BookID, Model.BookName(Model.Item.BookID))
+@Html.MyViewerFor(m => m.Item.AuthorID, Model.AuthorName(Model.Item.AuthorID))

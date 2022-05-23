@@ -1,13 +1,14 @@
 ﻿using Rakendus.Data.Party;
 using Rakendus.Domain.Party;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Rakendus.Facade.Party
 {
-    public sealed class ItemView: BaseView
+    public sealed class ItemView: UniqueView
     {
-        [Display(Name = "Isbn")] public string? Isbn { get; set; }
-        [Display(Name = "Libary")] public string? Libary { get; set; }
+        [DisplayName("Isbn")] public string? BookID { get; set; }
+        [DisplayName("Libary")] public string? LibaryID { get; set; }
     }
     public sealed class ItemViewFactory : BaseViewFactory<ItemView, Item, ItemData>
     {

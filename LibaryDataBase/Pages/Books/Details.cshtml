@@ -1,9 +1,41 @@
 ﻿@page
-@model Rakendus.Pages.BooksPage
+@using Rakendus.Facade.Party
+@model Rakendus.Pages.Party.BooksPage
 @{
     Layout = "_Details";
+    var columns = new[] { 
+        nameof(AuthorView.FirstName)
+        , nameof(AuthorView.LastName)
+        , nameof(AuthorView.DoB)
+    };
+    object? getValue<T>(string propertyname, T item) {
+        var pi = typeof(T).GetProperty(propertyname);
+        return pi?.GetValue(item);
+    }
 }
 
 <body>
     <partial name = "_DetailsPartial" />
+    <br>
+    <h4>Authors</h4>
+<br>
+
+    <table class="table">
+    <thead>
+    <tr>
+        @foreach (var name in columns) { <td> @Html.Raw(name) </td> }
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Authors.Value) {
+            <tr>
+                @foreach (var name in columns) {
+                    <td>
+                    @Html.Raw(getValue(name, item))
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+    </table>
 </body>

@@ -1,38 +1,9 @@
 ﻿@page
-@model Rakendus.Pages.LoansPage
+@model Rakendus.Pages.Party.LoansPage
+@using Rakendus.Pages.Extensions
 @{
-    ViewData["Title"] = "Index";
-    ViewData["SubTitle"] = Model?.GetType()?.Name?.Replace("Page", string.Empty) ?? "Unspecified";
+    Layout ="_Index";
 }
-<h1>@ViewData["SubTitle"]</h1>
-
-<p>
-    <a asp-page="Create" asp-page-handler="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-           
-            <th>@Html.DisplayNameFor(model => model.Items[0].BookItem)</th>
-            <th>@Html.DisplayNameFor(model => model.Items[0].Reader)</th>
-             <th>@Html.DisplayNameFor(model => model.Items[0].LoanedDate)</th>
-            <th>@Html.DisplayNameFor(model => model.Items[0].LoanedReturned)</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Items) {
-        <tr>
-            <td> @Html.DisplayFor(modelItem => item.BookItem)</td>
-            <td>@Html.DisplayFor(modelItem => item.Reader)</td>
-            <td>@Html.DisplayFor(modelItem => item.LoanedDate)</td>
-            <td>@Html.DisplayFor(modelItem => item.LoanedReturned)</td>
-            <td>
-              <a asp-page="./Edit" asp-page-handler="Edit" asp-route-id="@item.ID">Edit</a> |
-              <a asp-page="./Details" asp-page-handler="Details" asp-route-id="@item.ID">Details</a> |
-              <a asp-page="./Delete" asp-page-handler="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<body>
+    @Html.ShowTable(Model.Items)
+</body>

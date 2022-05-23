@@ -1,16 +1,17 @@
 ﻿using Rakendus.Data.Party;
 using Rakendus.Domain.Party;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Rakendus.Facade.Party
 {
-    public sealed class LoanedView: BaseView
+    public sealed class LoanedView: UniqueView
     {
-       
-        [Display(Name = "Book Item")] public string? BookItem { get; set; }
-        [Display(Name = "Reader")] public string? Reader { get; set; }
-        [Display(Name = "Loaned Date")] public DateTime? LoanedDate { get; set; }
-        [Display(Name = "Loaned Returned")] public DateTime? LoanedReturned { get; set; }
+
+        [DisplayName("Book Item")] public string? ItemID { get; set; }
+        [DisplayName("Reader")] public string? ReaderID { get; set; }
+        [DisplayName("Loaned Date")] public DateTime? LoanedDate { get; set; }
+        [DisplayName("Loaned Returned")] public DateTime? LoanedReturned { get; set; }
 
 
     }

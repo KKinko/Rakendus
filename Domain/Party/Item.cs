@@ -3,15 +3,13 @@
 namespace Rakendus.Domain.Party
 {
     public interface IItemsRepo : IRepo<Item> { }
-    public sealed class Item: Entity<ItemData>
+    public sealed class Item: UniqueEntity<ItemData>
     {
-        public Item() : this(new ItemData()) { }
+        public Item() : this(new ()) { }
         public Item(ItemData d) : base(d) { }
         
-        public string? Isbn => getValue(Data?.Isbn);
-        public string? Libary => getValue(Data?.Libary); 
+        public string BookID => getValue(Data?.BookID);
+        public string LibaryID => getValue(Data?.LibaryID);
 
-        
-        
     }
 }

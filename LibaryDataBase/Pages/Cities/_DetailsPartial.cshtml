@@ -1,0 +1,6 @@
+﻿@model Rakendus.Pages.Party.CitiesPage
+@using Rakendus.Pages.Extensions
+
+@Html.MyViewerFor(m => m.Item.Name)
+@Html.MyViewerFor(m => m.Item.County)
+@Html.MyViewerFor(m => m.Item.CountryID, Model.CountryName(Model.Item.CountryID))

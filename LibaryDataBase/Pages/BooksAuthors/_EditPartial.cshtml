@@ -1,0 +1,5 @@
+﻿@model Rakendus.Pages.Party.BooksAuthorsPage
+@using Rakendus.Pages.Extensions
+
+ @Html.MyDropDownFor(m => m.Item.BookID, Model.Books)
+ @Html.MyDropDownFor(m => m.Item.AuthorID, Model.Authors)

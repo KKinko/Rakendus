@@ -2,5 +2,5 @@
 
 namespace Rakendus.Tests.Data
 {
-    [TestClass] public class IsDataTested : IsAssemblyTested { }
+    [TestClass] public class IsDataTested : AssemblyTests { }
 }

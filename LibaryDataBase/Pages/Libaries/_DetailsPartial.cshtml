@@ -1,0 +1,6 @@
+﻿@model Rakendus.Pages.Party.LibariesPage
+@using Rakendus.Pages.Extensions
+
+@Html.MyViewerFor(m => m.Item.Name)
+@Html.MyViewerFor(m => m.Item.Address)
+@Html.MyViewerFor(m => m.Item.CityID, Model.CityName(Model.Item.CityID))

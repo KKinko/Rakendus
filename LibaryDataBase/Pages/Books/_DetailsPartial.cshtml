@@ -1,4 +1,8 @@
-﻿@model Rakendus.Pages.BooksPage
+﻿@model Rakendus.Pages.Party.BooksPage
 @using Rakendus.Pages.Extensions
 
-@Html.MyViewerFor(m => m.Item.FullBookName)
+@Html.MyViewerFor(m => m.Item.Isbn)
+@Html.MyViewerFor(m => m.Item.Title)
+@Html.MyViewerFor(m => m.Item.Field)
+@Html.MyViewerFor(m => m.Item.PublishDate)
+@Html.MyViewerFor(m => m.Item.PageCount)

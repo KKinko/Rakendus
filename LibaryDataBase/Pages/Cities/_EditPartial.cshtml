@@ -1,0 +1,6 @@
+﻿@model Rakendus.Pages.Party.CitiesPage
+@using Rakendus.Pages.Extensions
+
+ @Html.MyEditorFor(m => m.Item.Name)
+@Html.MyEditorFor(m => m.Item.County)
+@Html.MyDropDownFor(m => m.Item.CountryID, Model.Countries)

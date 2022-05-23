@@ -1,6 +1,7 @@
 using LibaryDataBase.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Rakendus.Domain;
 using Rakendus.Domain.Party;
 using Rakendus.Infra;
 using Rakendus.Infra.Initializers;
@@ -27,6 +28,14 @@ builder.Services.AddTransient<IBooksRepo, BooksRepo>();
 builder.Services.AddTransient<IItemsRepo, ItemsRepo>();
 builder.Services.AddTransient<ILoansRepo, LoansRepo>();
 builder.Services.AddTransient<IReadersRepo, ReadersRepo>();
+builder.Services.AddTransient<ICountriesRepo, CountriesRepo>();
+builder.Services.AddTransient<ICurrenciesRepo, CurrenciesRepo>();
+builder.Services.AddTransient<ICitiesRepo, CitiesRepo>(); 
+builder.Services.AddTransient<ICountryCurrenciesRepo, CountryCurrenciesRepo>();
+builder.Services.AddTransient<ILibariesRepo, LibariesRepo>();
+builder.Services.AddTransient<IBooksAuthorsRepo, BooksAuthorsRepo>();
+builder.Services.AddTransient<IAuthorsRepo, AuthorsRepo>();
+
 
 
 var app = builder.Build();
@@ -44,6 +53,7 @@ else
 }
 using (var scope = app.Services.CreateScope())
 {
+    GetRepo.SetService(app.Services);
     var db = scope.ServiceProvider.GetService<RakendusDb>();
     db?.Database?.EnsureCreated();
     RakendusDbInitializer.Init(db);

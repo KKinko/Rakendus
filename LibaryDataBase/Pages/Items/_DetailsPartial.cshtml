@@ -1,5 +1,5 @@
-﻿@model Rakendus.Pages.ItemsPage
+﻿@model Rakendus.Pages.Party.ItemsPage
 @using Rakendus.Pages.Extensions
 
-@Html.MyViewerFor(m => m.Item.Isbn)
-@Html.MyViewerFor(m => m.Item.Libary)
+@Html.MyViewerFor(m => m.Item.BookID, Model.BookName(Model.Item.BookID))
+@Html.MyViewerFor(m => m.Item.LibaryID, Model.LibaryName(Model.Item.LibaryID))

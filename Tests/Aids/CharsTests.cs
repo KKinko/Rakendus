@@ -3,22 +3,34 @@ using Rakendus.Aids;
 
 namespace Rakendus.Tests.Aids
 {
-    [TestClass] public class CharsTests : IsTypeTested 
+    [TestClass] public class CharsTests : TypeTests 
     {
-        [TestMethod] public void IsNameCharTest()
+        private char letter;
+        private char digit;
+
+        [TestInitialize]
+        public void Init()
         {
-            Assert.IsTrue(Chars.IsNameChar('a'));
-            Assert.IsTrue(Chars.IsNameChar('9'));
+            letter = GetRandom.Char('a', 'z');
+            digit = GetRandom.Char('0', '9');
+        }
+        [TestMethod]
+        public void IsNameCharTest()
+        {
+            Assert.IsTrue(Chars.IsNameChar(letter));
+            Assert.IsTrue(Chars.IsNameChar(digit));
             Assert.IsFalse(Chars.IsNameChar('.'));
             Assert.IsFalse(Chars.IsNameChar('_'));
+            Assert.IsTrue(Chars.IsNameChar('`'));
             Assert.IsFalse(Chars.IsNameChar(':'));
         }
-
-        [TestMethod] public void IsFullNameCharTest()
+        [TestMethod]
+        public void IsFullNameCharTest()
         {
-            Assert.IsTrue(Chars.IsFullNameChar('a'));
-            Assert.IsTrue(Chars.IsFullNameChar('9'));
+            Assert.IsTrue(Chars.IsFullNameChar(letter));
+            Assert.IsTrue(Chars.IsFullNameChar(digit));
             Assert.IsTrue(Chars.IsFullNameChar('.'));
+            Assert.IsTrue(Chars.IsFullNameChar('`'));
             Assert.IsFalse(Chars.IsFullNameChar('_'));
             Assert.IsFalse(Chars.IsFullNameChar(':'));
         }

@@ -1,9 +1,9 @@
 ﻿
 namespace Rakendus.Data.Party
 {
-    public sealed class ItemData: EntityData
+    public sealed class ItemData: UniqueData
     {
-        public string? Isbn { get; set; }
-        public string? Libary { get; set; }
+        public string? BookID { get; set; }
+        public string? LibaryID { get; set; }
     }
 }

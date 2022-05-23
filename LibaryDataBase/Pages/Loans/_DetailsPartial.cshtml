@@ -1,7 +1,7 @@
-﻿@model Rakendus.Pages.LoansPage
+﻿@model Rakendus.Pages.Party.LoansPage
 @using Rakendus.Pages.Extensions
 
-@Html.MyViewerFor(m => m.Item.BookItem)
-@Html.MyViewerFor(m => m.Item.Reader)
+@Html.MyViewerFor(m => m.Item.ItemID, Model.ItemName(Model.Item.ItemID))
+@Html.MyViewerFor(m => m.Item.ReaderID,Model.ReaderName(Model.Item.ReaderID))
 @Html.MyViewerFor(m => m.Item.LoanedDate)
 @Html.MyViewerFor(m => m.Item.LoanedReturned)

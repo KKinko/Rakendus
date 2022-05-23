@@ -1,7 +1,7 @@
-﻿@model Rakendus.Pages.LoansPage
+﻿@model Rakendus.Pages.Party.LoansPage
 @using Rakendus.Pages.Extensions
 
-@Html.MyEditorFor(m => m.Item.BookItem)
-@Html.MyEditorFor(m => m.Item.Reader)
+@Html.MyDropDownFor(m => m.Item.ItemID, Model.BookItems)
+@Html.MyDropDownFor(m => m.Item.ReaderID, Model.Readers)
 @Html.MyEditorFor(m => m.Item.LoanedDate)
 @Html.MyEditorFor(m => m.Item.LoanedReturned)

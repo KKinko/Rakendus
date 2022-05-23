@@ -1,6 +1,6 @@
-﻿@model Rakendus.Pages.ItemsPage
+﻿@model Rakendus.Pages.Party.ItemsPage
 @using Rakendus.Pages.Extensions
 
-@Html.MyEditorFor(m => m.Item.Isbn)
-@Html.MyEditorFor(m => m.Item.Libary)
+@Html.MyDropDownFor(m => m.Item.BookID, Model.Books)
+@Html.MyDropDownFor(m => m.Item.LibaryID, Model.Libaries)
            

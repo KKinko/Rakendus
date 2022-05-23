@@ -1,14 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Rakendus.Data.Party;
+using Rakendus.Domain.Party;
 using Rakendus.Facade.Party;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Rakendus.Tests.Facade.Party
 {
-    [TestClass] public class LoanedViewFactoryTests : SealedClassTests<LoanedViewFactory>
+    [TestClass] public class LoanedViewFactoryTests : ViewFactoryTests<LoanedViewFactory, LoanedView, Loaned, LoanedData>
     {
+        protected override Loaned toObject(LoanedData d) => new(d);
     }
 }

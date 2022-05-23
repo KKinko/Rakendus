@@ -1,12 +1,13 @@
-﻿@model Rakendus.Pages.ReadersPage
+﻿@model Rakendus.Pages.Party.ReadersPage
 @using Rakendus.Pages.Extensions
 
 @Html.MyEditorFor(m => m.Item.FirstName)
 @Html.MyEditorFor(m => m.Item.LastName)
-@Html.MyEditorFor(m => m.Item.Gender)     
+@Html.MyDropDownFor(m => m.Item.Gender, Model.Genders)
 @Html.MyEditorFor(m => m.Item.DoB)
 @Html.MyEditorFor(m => m.Item.Telephone)
-@Html.MyEditorFor(m => m.Item.City)
+@Html.MyDropDownFor(m => m.Item.CityID, Model.Cities)
+@Html.MyDropDownFor(m => m.Item.LoanedID, Model.Loans)
 @Html.MyEditorFor(m => m.Item.HomeAddress)
-@Html.MyEditorFor(m => m.Item.Education)
-@Html.MyEditorFor(m => m.Item.EmailAddress)
+
+

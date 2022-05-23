@@ -10,8 +10,8 @@ namespace Rakendus.Infra.Initializers
             var item = new ItemData
             {
                 ID = id,
-                Isbn = isbn,
-                Libary = libaryName
+                BookID = isbn,
+                LibaryID = libaryName
 
             };
             return item;

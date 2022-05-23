@@ -11,7 +11,6 @@ namespace Rakendus.Tests.Domain.Party {
         [TestMethod] public void CityIDTest() => isReadOnly(obj.Data.CityID);
         [TestMethod] public void GenderTest() => isReadOnly(obj.Data.Gender);
         [TestMethod] public void HomeAddressTest() => isReadOnly(obj.Data.HomeAddress);
-        [TestMethod] public void LoanedIDTest() => isReadOnly(obj.Data.LoanedID);
         [TestMethod] public void ToStringTest()  {
             var expected = $"{obj.FirstName} {obj.LastName} ({obj.Gender.Description()}, {obj.DoB})";
             areEqual(expected, obj.ToString());

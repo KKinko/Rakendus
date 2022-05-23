@@ -52,20 +52,52 @@ namespace LibaryDataBase.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Authors",
+                schema: "Rakendus",
+                columns: table => new
+                {
+                    ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Token = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DoB = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Authors", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Books",
                 schema: "Rakendus",
                 columns: table => new
                 {
                     ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Isbn = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Author = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Field = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PublishDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    PageCount = table.Column<int>(type: "int", nullable: true)
+                    PageCount = table.Column<int>(type: "int", nullable: true),
+                    Token = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Books", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BooksAuthors",
+                schema: "Rakendus",
+                columns: table => new
+                {
+                    ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    BookID = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AuthorID = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Token = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BooksAuthors", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -75,7 +107,9 @@ namespace LibaryDataBase.Migrations
                 {
                     ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    County = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    County = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CountryID = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Token = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -88,6 +122,7 @@ namespace LibaryDataBase.Migrations
                 columns: table => new
                 {
                     ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Token = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false),
                     Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -105,6 +140,7 @@ namespace LibaryDataBase.Migrations
                     ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CountryID = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CurrencyID = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Token = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false),
                     Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -120,6 +156,7 @@ namespace LibaryDataBase.Migrations
                 columns: table => new
                 {
                     ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Token = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false),
                     Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -135,12 +172,29 @@ namespace LibaryDataBase.Migrations
                 columns: table => new
                 {
                     ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Isbn = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Libary = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    BookID = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LibaryID = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Token = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Items", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Libaries",
+                schema: "Rakendus",
+                columns: table => new
+                {
+                    ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CityID = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Token = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Libaries", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -149,10 +203,11 @@ namespace LibaryDataBase.Migrations
                 columns: table => new
                 {
                     ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    BookItem = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Reader = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LoanedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    LoanedReturned = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    LoanedReturned = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ItemID = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ReaderID = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Token = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -165,15 +220,15 @@ namespace LibaryDataBase.Migrations
                 columns: table => new
                 {
                     ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Gender = table.Column<int>(type: "int", nullable: true),
-                    DoB = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Telephone = table.Column<int>(type: "int", nullable: true),
                     CityID = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HomeAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Education = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    LoanedID = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Token = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DoB = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -344,7 +399,15 @@ namespace LibaryDataBase.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Authors",
+                schema: "Rakendus");
+
+            migrationBuilder.DropTable(
                 name: "Books",
+                schema: "Rakendus");
+
+            migrationBuilder.DropTable(
+                name: "BooksAuthors",
                 schema: "Rakendus");
 
             migrationBuilder.DropTable(
@@ -365,6 +428,10 @@ namespace LibaryDataBase.Migrations
 
             migrationBuilder.DropTable(
                 name: "Items",
+                schema: "Rakendus");
+
+            migrationBuilder.DropTable(
+                name: "Libaries",
                 schema: "Rakendus");
 
             migrationBuilder.DropTable(

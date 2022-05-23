@@ -84,8 +84,7 @@ namespace Rakendus.Tests.Aids {
             areNotEqual(x.FirstName, y.FirstName, nameof(x.FirstName));
             areNotEqual(x.LastName, y.LastName, nameof(x.LastName));
             areNotEqual(x.Telephone, y.Telephone, nameof(x.Telephone));
-            areNotEqual(x.CityID, y.CityID, nameof(x.CityID)); 
-            areNotEqual(x.LoanedID, y.LoanedID, nameof(x.LoanedID));
+            areNotEqual(x.CityID, y.CityID, nameof(x.CityID));
             areNotEqual(x.HomeAddress, y.HomeAddress, nameof(x.HomeAddress));
 
     }

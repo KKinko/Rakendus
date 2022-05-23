@@ -10,7 +10,6 @@ namespace Rakendus.Facade.Party
         [DisplayName("Telephone")] public int? Telephone { get; set; }
         [DisplayName("City")] public string? CityID { get; set; }
         [DisplayName("Home Address")] public string? HomeAddress { get; set; }
-        [DisplayName("Loans")] public string? LoanedID { get; set; }
         [DisplayName("Reader FullName")] public string? ReaderFullName { get; set; }
 
     }

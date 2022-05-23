@@ -13,3 +13,4 @@ namespace Rakendus.Tests.Infra.Party
         protected override object? getSet(RakendusDb db) => db.Authors;
     }
 }
+

@@ -13,8 +13,10 @@ namespace Rakendus.Domain.Party
         public int Telephone => getValue(Data?.Telephone);
         public string CityID => getValue(Data?.CityID);
         public string HomeAddress => getValue(Data?.HomeAddress);
-        public string LoanedID => getValue(Data?.LoanedID);
         public override string ToString() => $"{FirstName} {LastName} ({Gender?.Description()}, {DoB})";
+       
     }
 
+   
+   
 }

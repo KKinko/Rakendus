@@ -224,15 +224,64 @@ namespace LibaryDataBase.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Rakendus.Data.Party.AuthorData", b =>
+                {
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("DoB")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Token")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Authors", "Rakendus");
+                });
+
+            modelBuilder.Entity("Rakendus.Data.Party.BookAuthorData", b =>
+                {
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AuthorID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BookID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Token")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("BooksAuthors", "Rakendus");
+                });
+
             modelBuilder.Entity("Rakendus.Data.Party.BookData", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Author")
+                    b.Property<string>("Field")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Field")
+                    b.Property<string>("Isbn")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("PageCount")
@@ -244,6 +293,12 @@ namespace LibaryDataBase.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("Token")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
                     b.HasKey("ID");
 
                     b.ToTable("Books", "Rakendus");
@@ -254,11 +309,20 @@ namespace LibaryDataBase.Migrations
                     b.Property<string>("ID")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("CountryID")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("County")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Token")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.HasKey("ID");
 
@@ -287,6 +351,12 @@ namespace LibaryDataBase.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("Token")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
                     b.HasKey("ID");
 
                     b.ToTable("CountryCurrencies", "Rakendus");
@@ -305,6 +375,12 @@ namespace LibaryDataBase.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Token")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.HasKey("ID");
 
@@ -325,6 +401,12 @@ namespace LibaryDataBase.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("Token")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
                     b.HasKey("ID");
 
                     b.ToTable("Currencies", "Rakendus");
@@ -335,15 +417,46 @@ namespace LibaryDataBase.Migrations
                     b.Property<string>("ID")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Isbn")
+                    b.Property<string>("BookID")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Libary")
+                    b.Property<string>("LibaryID")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Token")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.HasKey("ID");
 
                     b.ToTable("Items", "Rakendus");
+                });
+
+            modelBuilder.Entity("Rakendus.Data.Party.LibaryData", b =>
+                {
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CityID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Token")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Libaries", "Rakendus");
                 });
 
             modelBuilder.Entity("Rakendus.Data.Party.LoanedData", b =>
@@ -351,7 +464,7 @@ namespace LibaryDataBase.Migrations
                     b.Property<string>("ID")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("BookItem")
+                    b.Property<string>("ItemID")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("LoanedDate")
@@ -360,8 +473,14 @@ namespace LibaryDataBase.Migrations
                     b.Property<DateTime?>("LoanedReturned")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Reader")
+                    b.Property<string>("ReaderID")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Token")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.HasKey("ID");
 
@@ -379,12 +498,6 @@ namespace LibaryDataBase.Migrations
                     b.Property<DateTime?>("DoB")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Education")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmailAddress")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
@@ -397,8 +510,17 @@ namespace LibaryDataBase.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("LoanedID")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("Telephone")
                         .HasColumnType("int");
+
+                    b.Property<byte[]>("Token")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.HasKey("ID");
 

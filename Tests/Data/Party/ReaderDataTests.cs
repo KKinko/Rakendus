@@ -11,6 +11,5 @@ namespace Rakendus.Tests.Data.Party
         [TestMethod] public void TelephoneTest() => isProperty<int?>();
         [TestMethod] public void CityIDTest() => isProperty<string?>();
         [TestMethod] public void HomeAddressTest() => isProperty<string?>();
-        [TestMethod] public void LoanedIDTest() => isProperty<string?>();
     }
 }

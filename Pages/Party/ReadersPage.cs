@@ -31,11 +31,11 @@ namespace Rakendus.Pages.Party
             nameof(ReaderView.DoB),
             nameof(ReaderView.Telephone),
             nameof(ReaderView.CityID),
-            nameof(ReaderView.LoanedID),
             nameof(ReaderView.Telephone),
             nameof(ReaderView.HomeAddress),
             nameof(ReaderView.ReaderFullName)
         };
+
         public IEnumerable<SelectListItem> Cities
             => cities?.GetAll(x => x.Name)?
             .Select(x => new SelectListItem(x.Name, x.ID))
@@ -44,13 +44,6 @@ namespace Rakendus.Pages.Party
         => Enum.GetValues<IsoGender>()?
            .Select(x => new SelectListItem(x.Description(), x.ToString()))
            ?? new List<SelectListItem>();
-        public IEnumerable<SelectListItem> Loans
-       => loans?.GetAll(x => x.ID)?
-            .Select(x => new SelectListItem(x.ID, x.ID))
-            ?? new List<SelectListItem>();
-
-        public string LoanedName(string? loanedID = null)
-           => Loans?.FirstOrDefault(x => x.Value == (loanedID ?? string.Empty))?.Text ?? "Unspecified";
 
         public string CityName(string? cityID = null)
            => Cities?.FirstOrDefault(x => x.Value == (cityID ?? string.Empty))?.Text ?? "Unspecified";
@@ -63,7 +56,6 @@ namespace Rakendus.Pages.Party
             var r = base.GetValue(name, v);
             return name == nameof(ReaderView.CityID) ? CityName(r as string) 
                 : name == nameof(ReaderView.Gender) ? GenderDescription((IsoGender) r)
-                : name == nameof(ReaderView.LoanedID) ? LoanedName(r as string)
                 : r;
         }
 
